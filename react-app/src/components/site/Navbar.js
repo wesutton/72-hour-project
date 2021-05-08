@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
     Route,
     Link,
@@ -6,29 +6,35 @@ import {
 } from 'react-router-dom'
 import Home from './Home'
 import Weather from '../apps/Weather-api'
-import '../../App.css'
+import SatImg from '../apps/Nasa api/index'
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
+import '../../App.scss'
 
 
-const Navbar = () => {
+const Header = () => {
     return (
     <header>
-        <nav className = "navbar">
-            <div className = "navbar-styling"> 
-            <h4><Link to ="/">Home</Link></h4>
-              <ul className = "navbar-list">
-              <li><Link to ="/weather-api"> Weather API</Link></li>
-              </ul>
-            </div>
-            <div className = "navbar-routes">
+        <Navbar className = "header">
+            <NavbarBrand href="/">Home</NavbarBrand>
+              <Nav navbar>
+                <NavItem>
+              <NavLink className="navLink" href ="/weather-api"> Weather API</NavLink>
+              </NavItem>
+              <NavItem>
+              <NavLink className="navLink" href ="/nasa-image">Nasa Earth Imagery</NavLink>
+              </NavItem>
+              </Nav>
+        </Navbar>
+            
+            
         <Switch>
                 <Route exact path ="/Home"><Home /></Route>
                 <Route exact path ="/"><Home /></Route>
-                <Route exat path = "/weather-api"><Weather /></Route>
+                <Route exact path = "/weather-api"><Weather /></Route>
+                <Route exact path = "/nasa-image"><SatImg /></Route>
         </Switch>
-            </div>
-        </nav>
     </header>
      );
 };
 
-export default Navbar;
+export default Header;
