@@ -1,9 +1,8 @@
 import "./styles.scss"
 import {useEffect, useState} from 'react'
 import {Container, Col, Row} from 'reactstrap'
-
-
-
+import env from "react-dotenv"
+//require('dotenv').config
 
 const SatImg = () => {
     
@@ -19,13 +18,14 @@ const SatImg = () => {
         })
     }
 
+
     const currentDate = new Date()
     let date = currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate();
 
+   
     
     const data = async () => {
-        const key = "bphLAKHvd9YWVncp44lf6R8KCxT8eDomyxy7ZSZd"
-        const res = await fetch(`https://api.nasa.gov/planetary/earth/assets?lon=${longitude}&lat=${latitude}&date=${date}&dim=0.037&api_key=${key}`)
+        const res = await fetch(`https://api.nasa.gov/planetary/earth/assets?lon=${longitude}&lat=${latitude}&date=${date}&dim=0.037&api_key=${process.env.REACT_APP_NASA_KEY}`)
         const json = await res.json()
         setImage(json)
         console.log(json)
@@ -34,7 +34,7 @@ const SatImg = () => {
     const dataWeather = async () => {
 
         const url = `https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${latitude}&lon=${longitude}&appid=`
-        const key = "be1c2e173a69af7a3a9beff74909e0fc"
+        const key = process.env.REACT_APP_WEATHER_KEY
         const res = await fetch(url + key)
         const json = await res.json()
         setWeather(json)
