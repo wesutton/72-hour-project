@@ -1,8 +1,6 @@
 import "./styles.scss"
 import {useEffect, useState} from 'react'
 import {Container, Col, Row} from 'reactstrap'
-import env from "react-dotenv"
-//require('dotenv').config
 
 const SatImg = () => {
     
