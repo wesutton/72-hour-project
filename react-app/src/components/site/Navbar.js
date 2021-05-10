@@ -1,25 +1,20 @@
 
 import {
-    Switch
+    Switch,
+    Route,
 } from 'react-router-dom'
-import SatImg from '../apps/Nasa api/index'
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
+import SatImg from '../apps/weather-food-location/'
+import Home from '../site/Home'
 import '../../App.scss'
 
 
 const Header = () => {
     return (
         <div>
-    <header>
-        <Navbar className = "header">
-            <NavbarBrand>GET GRUB</NavbarBrand> 
-              <Nav navbar>
-              <NavItem>
-              </NavItem>
-              </Nav>
-        </Navbar>        
-    </header>
-        <SatImg />
+        <Switch>
+        <Route exact path="/"><Home /></Route>
+        <Route exact path="/grub"><SatImg /></Route>
+        </Switch>
     </div>
      );
 };
