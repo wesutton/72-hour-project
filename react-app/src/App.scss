@@ -1,0 +1,30 @@
+
+.header{
+  display: flex;
+  margin: auto;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: rgba(201, 108, 68, 0.6);
+  box-shadow: 5px 5px 10px;
+  
+  
+      h1{
+        display: flex;
+        margin: auto;
+        letter-spacing: 20px;
+        font-family: 'Fascinate', sans-serif;
+        color: #f6f2dd;
+        font-size: xx-large;
+        
+          a{
+            color: #f6f2dd;
+            
+              &:hover{
+                text-decoration: none;
+                transform: scale(1.1);
+            }
+          }
+      }
+  }
+

@@ -1,0 +1,52 @@
+
+//!Landing Style
+
+    .landing{
+    
+        display: flex;
+        align-content:center;
+        justify-content: center;
+        flex-direction: column;
+        border: 1px solid black;
+        margin: auto;
+        margin-top: 5%;
+        border-radius: 50%;
+        box-shadow: 5px 5px 10px black;
+        width:700px;
+        height: 700px;
+        background-color: rgba(201, 108, 68, 0.6);
+        
+
+        
+        h1{
+            display: flex;
+            align-content: center;
+            justify-self: center;
+            flex-direction: column;
+            //flex-wrap: nowrap;
+            padding-bottom: 5px;
+            text-align: center;
+            margin-bottom: 10%;
+            font-family: 'Fascinate';
+            color: #f6f2dd;
+            letter-spacing: 2px;
+            border-bottom: 5px ridge #f6f2dd;
+            border-radius: 4px;
+            text-shadow: 2px 2px 3px black;
+
+        }
+
+        button{
+            display: flex;
+            padding: 0%;
+            background-color:rgba(68, 111, 201, 0.8);
+        }
+
+        a {
+            padding: 5px;
+            color:#f6f2dd;
+            text-decoration: none;
+        }
+    }
+
+
