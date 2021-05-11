@@ -5,7 +5,7 @@ import './home.scss'
 
 const Home = () => {
     return (
-        <div className="landingDiv">
+        
         <Container className="landing">
             <Row>
                 <Col md={12} xs={12}>
@@ -14,7 +14,7 @@ const Home = () => {
                 </Col>
             </Row>
         </Container>
-        </div>
+   
 
 
     )

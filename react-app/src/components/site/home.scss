@@ -1,29 +1,31 @@
 
 
-.landingDiv {
-    margin: auto;
-    margin-top: 5%;
-    //border: 1px solid black;
-    border-radius: 50%;
-    box-shadow: 5px 5px 10px black;
-    width:max-content;
-    height: max-content;
-    background-color: rgba(201, 108, 68, 0.6);
 
     .landing{
     
         display: flex;
-        align-content: center;
+        align-content:center;
         justify-content: center;
-        flex-direction: row;
-        width:70vh;
-        height:70vh;
-    
+        flex-direction: column;
+        border: 1px solid black;
+        margin: auto;
+        margin-top: 5%;
+        border-radius: 50%;
+        box-shadow: 5px 5px 10px black;
+        width:700px;
+        height: 700px;
+        background-color: rgba(201, 108, 68, 0.6);
+        
+
+        
         h1{
             display: flex;
             align-content: center;
+            justify-self: center;
+            flex-direction: column;
+            //flex-wrap: nowrap;
             padding-bottom: 5px;
-            margin-top: 50%;
+            text-align: center;
             margin-bottom: 10%;
             font-family: 'Fascinate';
             color: #f6f2dd;
@@ -37,16 +39,14 @@
         button{
             display: flex;
             padding: 0%;
-            text-align: center;
-            align-self: baseline;
             background-color:rgba(68, 111, 201, 0.8);
         }
 
         a {
-            padding: 20px;
+            padding: 5px;
             color:#f6f2dd;
             text-decoration: none;
         }
     }
-}
+
 
