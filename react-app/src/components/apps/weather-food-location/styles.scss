@@ -1,0 +1,143 @@
+body {
+    background-color: #f6f2dd;
+}
+
+.header {
+    display: flex;
+    margin: auto;
+    margin: 10px 10px 50px 10px;
+    background-color: rgba(201, 108, 68, 0.6);
+    box-shadow: 5px 5px 10px;
+    
+
+    h1 {
+        display: flex;
+        margin: auto;
+        letter-spacing: 20px;
+        text-align: center;
+        font-family: "Fascinate", sans-serif;
+        color: #f6f2dd;
+        font-size: xx-large;
+
+        a {
+            color: #f6f2dd;
+
+            &:hover {
+                text-decoration: none;
+                transform: scale(1.08);
+                transition-duration: 0.5s;
+            }
+        }
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+
+    width: auto;
+    padding: 50px;
+    margin-top: 7vh;
+
+    font-family: "Inter", sans-serif;
+    background-color: rgba(201, 108, 68, 0.6);
+    border-radius: 20px;
+}
+
+.textDiv {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #f6f2dd;
+    border-radius: 20px;
+    margin: auto;
+    width: 50%;
+    height: auto;
+    box-shadow: 5px 5px 10px;
+
+    h2 {
+        font-weight: bold;
+        margin-top: 10px;
+        
+    }
+    p {
+        display: flex;
+        font-size: x-large;
+        align-self: center;
+        padding: 10px;
+    }
+}
+
+.imgDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #f6f2dd;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: 5px 5px 10px;
+
+    img {
+        margin: auto;
+        height: 80%;
+        width: 50%;
+        margin-top: 20px;
+        image-rendering: crisp-edges;
+        border-radius: 50%;
+        box-shadow: 5px 5px 10px;
+        margin-bottom: 20px;
+    }
+}
+
+button {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(68, 111, 201, 0.5);
+    color: #f6f2dd;
+    font-size: x-large;
+    border-radius: 8px;
+    padding: 15px;
+    border: none;
+    box-shadow: 2px 2px 5px black;
+    font-family: "Fascinate";
+
+    &:hover {
+        transform: scale(1.01);
+        transition-duration: 0.3s;
+        box-shadow: 3px 3px 5px black;
+    }
+}
+
+.weatherDiv {
+    display: flex;
+    text-align: center;
+    border-radius: 20px;
+    background-color: rgba(201, 108, 68, 0.6);
+    margin: auto;
+    width: 60%;
+}
+
+.weatherContainer {
+    display: flex;
+    width: max-content;
+    justify-content: center;
+    align-content: space-around;
+    background-color: #f6f2dd;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px;
+
+    h2 {
+        font-family: "Inter";
+        font-weight: bold;
+    }
+
+    p {
+        font-size: x-large;
+        font-family: "Inter";
+        text-transform: capitalize;
+    }
+}

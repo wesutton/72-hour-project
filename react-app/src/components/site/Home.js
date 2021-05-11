@@ -1,14 +1,23 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css'
+import { Container, Row, Col } from 'reactstrap'
+import {Link} from 'react-router-dom'
+
+import './home.scss'
+
+const Home = () => {
+    return (
+        
+        <Container className="landing">
+            <Row>
+                <Col md={12} xs={12}>
+                    <h1>Welcome to Get Grub!</h1>  
+                <button><Link to="/grub">Weather, Food, Location!</Link></button>
+                </Col>
+            </Row>
+        </Container>
+   
 
 
-function Home() {
-  return (
-    <div className="home" href ="/">
-      <p> Welcome to our 72 hour project</p>
-
-    </div>
-  );
+    )
 }
 
-export default Home;
+export default Home

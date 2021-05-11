@@ -1,34 +1,22 @@
-import React from "react";
+
 import {
+    Switch,
     Route,
-    Link,
-    Switch
 } from 'react-router-dom'
-import Home from './Home'
-import Weather from '../apps/Weather-api'
-import '../../App.css'
+import SatImg from '../apps/weather-food-location/'
+import Home from '../site/Home'
+import '../../App.scss'
 
 
-const Navbar = () => {
+const Header = () => {
     return (
-    <header>
-        <nav className = "navbar">
-            <div className = "navbar-styling"> 
-            <h4><Link to ="/">Home</Link></h4>
-              <ul className = "navbar-list">
-              <li><Link to ="/weather-api"> Weather API</Link></li>
-              </ul>
-            </div>
-            <div className = "navbar-routes">
+        <div>
         <Switch>
-                <Route exact path ="/Home"><Home /></Route>
-                <Route exact path ="/"><Home /></Route>
-                <Route exat path = "/weather-api"><Weather /></Route>
+        <Route exact path="/"><Home /></Route>
+        <Route exact path="/grub"><SatImg /></Route>
         </Switch>
-            </div>
-        </nav>
-    </header>
+    </div>
      );
 };
 
-export default Navbar;
+export default Header;
