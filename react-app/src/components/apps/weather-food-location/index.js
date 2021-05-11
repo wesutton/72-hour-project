@@ -2,6 +2,7 @@ import "./styles.scss"
 import { useEffect, useState } from 'react'
 import { Container, Col, Row, Navbar } from 'reactstrap'
 import {Link} from 'react-router-dom'
+//import 'cors-anywhere'
 
 
 const SatImg = () => {
@@ -9,10 +10,13 @@ const SatImg = () => {
     const [image, setImage] = useState()
     const [weather, setWeather] = useState()
     const [metric, setMetric] = useState()
+    const [food, setFood] = useState()
     const [latitude, setLatitude] = useState()
     const [longitude, setLongitude] = useState()
    
 
+
+    //!Location for url params
     const getLocation = () => {
         navigator.geolocation.getCurrentPosition((position) => {
             setLatitude(position.coords.latitude)
@@ -21,11 +25,12 @@ const SatImg = () => {
     }
 
 
+    //!date for nasa url
     const currentDate = new Date()
     let date = currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate();
 
 
-
+    //!nasa fetch
     const data = async () => {
         const res = await fetch(`https://api.nasa.gov/planetary/earth/assets?lon=${longitude}&lat=${latitude}&date=${date}&dim=0.037&api_key=${process.env.REACT_APP_NASA_KEY}`)
         const json = await res.json()
@@ -33,18 +38,18 @@ const SatImg = () => {
         console.log(json)
     }
 
+    
+    //!weather fetch
     const dataWeather = async () => {
 
-        //const url = `https://api.openweathermap.org/data/2.5/weather?lat=39&lon=86`
-
-         const url = `https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${latitude}&lon=${longitude}&appid=`
+        const url = `https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${latitude}&lon=${longitude}&appid=`
         const key = process.env.REACT_APP_WEATHER_KEY
         const res = await fetch(url + key)
         const json = await res.json()
         setWeather(json)
         console.log('hello', json)
     }
-
+        //*Weather fetch metric
     const celWeather = async () => {
         const url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${latitude}&lon=${longitude}&appid=`
         const key = process.env.REACT_APP_WEATHER_KEY
@@ -55,10 +60,25 @@ const SatImg = () => {
 
     }
 
+    //!Yelp fetch
+    const yelp = async () => {
+        
+        const url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=restaurants&limit=21&latitude=${latitude}&longitude=${longitude}`
+        console.log(url)
+        const res = await fetch(url, {
+            headers: {
+                "Authorization": "Bearer uFN1GSUABZatn8BDPhsWXP92ZNil26lcUKbN-6R3W4d_xCoHwzOZF7H-rjffZHPgMOfqdhrmbGjs2gWf9fWMTigg8pwfz7IHkGf0I-BDgJ5yUxQQnic7qfqKXT-VYHYx"
+            }
+        })
+        const json = await res.json()
+        setFood(json)
+        console.log('yelp', json)
+    }
+
     useEffect(() => {
         getLocation()
-        //dataWeather()
     }, [])
+
 
     return (
         <div>
@@ -78,8 +98,6 @@ const SatImg = () => {
                             {weather ? <p>{weather?.main?.temp}°F</p> : null}
                             {weather?.weather[0]?.description && weather?.main?.temp ? <button onClick={celWeather}>Metric</button>:null}
                             { metric ? <p>{metric?.main?.temp}°C</p>:null}
-                          
-                          
                         </Col>
                     </Row>
                 </Container>
@@ -96,7 +114,13 @@ const SatImg = () => {
                     <Col md={10} xs={10} className="imgDiv">
                         {longitude && latitude ? <button onClick={data}>Get Image</button> : null}
                         {image?.url ? <img src={image?.url} alt="Sat img"></img> : null}
-                    
+                    </Col>
+                </Row>
+            </Container>
+            <Container className="foodContainer">
+                <Row>
+                    <Col>
+                    {longitude && latitude ? <button onClick={yelp}>Restaurants</button> : null}
                     </Col>
                 </Row>
             </Container>
